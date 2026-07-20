@@ -34,10 +34,9 @@ jobs:
             ---
             ${{ github.event.issue.body }}
             ---
-
-      -  name: Comment results on the issue
-         uses: peter-evans/create-or-update-comment@v4
-         with:
-           token: ${{ secrets.GITHUB_TOKEN }}
-           issue-number: ${{ github.event.issue.number }}
-           body: ${{ steps.ai-response.outputs.response }}
+      - name: Comment results on the issue
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: ${{ steps.ai-response.outputs.response }}
